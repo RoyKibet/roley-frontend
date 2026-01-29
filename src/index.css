@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+/* Roley Design System - Professional Tech Aesthetic */
+
+@layer base {
+  :root {
+    /* Core brand colors - Deep slate with electric blue accent */
+    --background: 222 47% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Electric blue */
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light slate */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent - Teal highlight */
+    --accent: 187 92% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Roley tokens */
+    --hero-overlay: 222 47% 11%;
+    --gradient-start: 217 91% 50%;
+    --gradient-end: 187 92% 43%;
+    --surface-elevated: 0 0% 100%;
+    --text-subtle: 220 9% 46%;
+    --success: 142 76% 36%;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 220 14% 96%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 222 47% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 187 92% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 217 91% 60%;
+    
+    --hero-overlay: 222 47% 4%;
+    --gradient-start: 217 91% 55%;
+    --gradient-end: 187 92% 50%;
+    --surface-elevated: 222 47% 12%;
+    --text-subtle: 220 9% 60%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Gradient utilities */
+  .gradient-primary {
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
+    border: 2px solid transparent;
+  }
+  
+  /* Glass effect */
+  .glass {
+    background-color: rgb(255 255 255 / 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgb(255 255 255 / 0.2);
+  }
+  
+  /* Section containers */
+  .section-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  .card-hover:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transform: translateY(-0.25rem);
+  }
+  
+  /* Text styles */
+  .heading-xl {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-xl {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-xl {
+      font-size: 3.75rem;
+    }
+  }
+  
+  .heading-lg {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-lg {
+      font-size: 2.25rem;
+    }
+  }
+  
+  .heading-md {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-md {
+      font-size: 1.875rem;
+    }
+  }
+  
+  .body-lg {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  @media (min-width: 768px) {
+    .body-lg {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
