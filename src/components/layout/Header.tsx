@@ -208,6 +208,81 @@ const Header = () => {
             className="lg:hidden bg-white border-t border-gray-200 overflow-hidden"
           >
             <div className="section-container py-4 space-y-4 text-black">
+              {/* Services Mobile Dropdown */}
+              <div>
+                <button
+                  onClick={() =>
+                    setActiveDropdown(activeDropdown === "services" ? null : "services")
+                  }
+                  className="flex justify-between w-full py-2 font-medium"
+                >
+                  Services
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      activeDropdown === "services" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {activeDropdown === "services" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 mt-2 space-y-2"
+                    >
+                      {services.map((service) => (
+                        <Link
+                          key={service.href}
+                          to={service.href}
+                          className="block py-2 text-gray-700 hover:text-black"
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Industries Mobile Dropdown */}
+              <div>
+                <button
+                  onClick={() =>
+                    setActiveDropdown(activeDropdown === "industries" ? null : "industries")
+                  }
+                  className="flex justify-between w-full py-2 font-medium"
+                >
+                  Industries
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      activeDropdown === "industries" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <AnimatePresence>
+                  {activeDropdown === "industries" && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="pl-4 mt-2 space-y-2"
+                    >
+                      {industries.map((industry) => (
+                        <Link
+                          key={industry.href}
+                          to={industry.href}
+                          className="block py-2 text-gray-700 hover:text-black"
+                        >
+                          {industry.title}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Other Links */}
               <a
                 href="/#about"
                 onClick={handleAboutClick}
@@ -230,6 +305,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
     </header>
   );
 };
