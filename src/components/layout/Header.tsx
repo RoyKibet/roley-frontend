@@ -30,7 +30,9 @@ const Header = () => {
     if (location.pathname !== "/") {
       navigate("/#about");
     } else {
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("about")
+        ?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -48,9 +50,13 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-bold text-xl">R</span>
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img
+                src="/roley.svg"
+                className="w-10 h-10 object-contain"
+              />
             </div>
+
             <span
               className={`text-xl font-bold transition-colors ${textColor}`}
             >
@@ -170,7 +176,7 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* CTA Button (NOW DYNAMIC LIKE OTHER LINKS) */}
+          {/* CTA Button */}
           <div className="hidden lg:block">
             <Button
               asChild
